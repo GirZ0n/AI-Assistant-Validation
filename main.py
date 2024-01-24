@@ -18,13 +18,31 @@ def main():
     task_data = data[data['taskId'] == task_id].squeeze()
 
     with st.expander(':red[**Task description**]'):
-        st.markdown(task_data['taskDescription'], unsafe_allow_html=True)
+        description = task_data['taskDescription']
+
+        plain = st.checkbox('Show as plain text', key='description')
+        if plain:
+            st.text(description)
+        else:
+            st.markdown(description, unsafe_allow_html=True)
 
     with st.expander(':green[**Steps**]'):
-        st.markdown(task_data['steps'], unsafe_allow_html=True)
+        steps = task_data['steps']
+
+        plain = st.checkbox('Show as plain text', key='steps')
+        if plain:
+            st.text(steps)
+        else:
+            st.markdown(steps, unsafe_allow_html=True)
 
     with st.expander(':blue[**Prompt**]'):
-        st.markdown(task_data['prompt'], unsafe_allow_html=True)
+        prompt = task_data['prompt']
+
+        plain = st.checkbox('Show as plain text', key='prompt')
+        if plain:
+            st.text(prompt)
+        else:
+            st.markdown(prompt, unsafe_allow_html=True)
 
 
 if __name__ == '__main__':
