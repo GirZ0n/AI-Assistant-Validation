@@ -33,7 +33,7 @@ def main():
         if plain:
             st.text(steps)
         else:
-            st.markdown(steps, unsafe_allow_html=True)
+            st.markdown(steps)
 
     with st.expander(':blue[**Prompt**]'):
         prompt = task_data['prompt']
