@@ -1,3 +1,4 @@
-pandas==2.2.0
-streamlit==1.30.0
+pandas==2.2.1
+streamlit==1.32.1
 openpyxl==3.1.2
+streamlit-diff-viewer==0.0.2
