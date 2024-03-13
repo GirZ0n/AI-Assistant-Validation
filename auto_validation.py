@@ -21,11 +21,11 @@ def main():
             format_func=lambda value: f'{value} -- {data.loc[data["taskId"] == value, "taskName"].values[0]}',
         )
 
-        task_data = data[data['taskId'] == task_id].reset_index(drop=True)
+        task_data = data[data['taskId'] == task_id]
 
     with right:
-        student = st.number_input('Student', min_value=1, max_value=len(task_data)) - 1
-        row_data = task_data.iloc[student].squeeze()
+        student = st.number_input('Student', min_value=1, max_value=len(task_data))
+        row_data = task_data[task_data['user'] == student].squeeze()
 
     with st.expander(':red[**Task description**]'):
         description = row_data['taskDescription']
